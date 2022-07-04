@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { ExampleComponent } from 'slide-show-react-kle'
-import 'slide-show-react-kle/dist/index.css'
+import { Slide } from 'slide-show-react-kle';
+import { dataSlides } from './dataSlides';
+import 'slide-show-react-kle/dist/index.css';
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
-}
+  return <Slide dataSlides={dataSlides} />;
+};
 
-export default App
+export default App;
