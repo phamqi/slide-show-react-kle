@@ -39,6 +39,7 @@ function Slide({ data, styles, children, btnNext, btnPrev }) {
   const [randomValue, setRandomValue] = useState(
     Math.random().toString(36).substring(2, 7)
   );
+
   const myCharLenght = myChar.length;
   var carousel,
     carouselButton,
@@ -56,6 +57,7 @@ function Slide({ data, styles, children, btnNext, btnPrev }) {
     carouselBlockTextInfor,
     carouselBlockTextLink;
   useMemo(() => {
+    console.log('random value', randomValue);
     try {
       if (styles.carousel) {
         var carouselA = JSON.stringify(styles.carousel);
@@ -469,18 +471,11 @@ ${
                 : `carousel_item_${randomValue}`
             }
           >
-            <picture>
-              <source media="(min-width: 1400px)" srcSet={slide.xxl} />
-              <source media="(min-width: 1200px)" srcSet={slide.xl} />
-              <source media="(min-width: 992px)" srcSet={slide.lg} />
-              <source media="(min-width: 768px)" srcSet={slide.md} />
-              <source media="(min-width: 576px)" srcSet={slide.sm} />
-              <img
-                className={`carousel_image_${randomValue}`}
-                src={slide.xs}
-                alt={slide.title}
-              />
-            </picture>
+            <img
+              className={`carousel_image_${randomValue}`}
+              src={slide.image}
+              alt={slide.alt ? slide.alt : 'img'}
+            />
             <div className={`carousel_block_text_${randomValue}`}>
               <h2 className={`carousel_block_text_name_${randomValue}`}>
                 {slide.name ? slide.name : 'Some thing'}
