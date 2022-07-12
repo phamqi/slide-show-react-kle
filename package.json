@@ -1,7 +1,7 @@
 {
   "name": "slide-show-react-kle",
-  "version": "1.0.2",
-  "description": "A simple slideshow component built with react that supports simple slide, slide with picture tag and swiper",
+  "version": "1.0.7",
+  "description": "A simple slideshow component built with react that supports simple slide, slideshow picture tag /click and swipe(mobile event)",
   "author": "phamqi",
   "license": "MIT",
   "repository": "phamqi/slide-show-react-kle",

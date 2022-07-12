@@ -1,6 +1,6 @@
 # slide-show-react-kle
 
-> Slide show component + swiper
+> Slideshow component click + swipe (mobile event)
 
 [![NPM](https://img.shields.io/npm/v/slide-show-react-kle.svg)](https://www.npmjs.com/package/slide-show-react-kle) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -12,7 +12,7 @@ npm install --save slide-show-react-kle
 
 ## Simple Slide
 
-You need to import the data
+You need to import the data, <a href='https://codesandbox.io/s/slideshow-react-swipe-f0z5ze' target="_blank" >let try</a>
 
 ```jsx
 import React from 'react'
@@ -46,14 +46,14 @@ import React from 'react'
 import {SlideSimple} from 'slide-show-react-kle'
 
 class Example extends Component {
-  // customize css //
+  // add  css //
   const style = {
     carousel: {
       marginLeft: '20px',
       marginRight: '20px'
     }
     carousel_img : {
-      // your css//
+      // your css !important //
     }
   }
   const images = {

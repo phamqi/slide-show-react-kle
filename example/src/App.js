@@ -8,7 +8,7 @@ import 'slide-show-react-kle/dist/index.css';
 const App = () => {
   const styles = {
     carousel: {
-      width: '50vw',
+      width: '50%',
       position: 'relative',
       overflow: 'hidden',
       marginLeft: 'auto',
