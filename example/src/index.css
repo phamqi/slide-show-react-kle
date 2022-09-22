@@ -7,7 +7,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -18,4 +17,8 @@ code {
 }
 h1, h2 {
   text-align: center;
+}
+.div_img {
+  overflow: hidden;
+  flex: 0 0 auto;
 }

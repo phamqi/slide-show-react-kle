@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import useFormatCss from '../useFormatCss';
-import styles from '../styles.module.scss';
 
 Slide.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.array.isRequired,
   children: PropTypes.element,
+  style: PropTypes.object,
+  btnNext: PropTypes.any,
+  btnPrev: PropTypes.any,
 };
 
-function Slide({ data, styles, btnNext, btnPrev }) {
-  const { contentCss, randomValue } = useFormatCss(styles);
+function Slide({ data, style, btnNext, btnPrev }) {
+  const { contentCss, randomValue } = useFormatCss(style);
   useMemo(() => {
     const style = document.createElement('style');
     style.textContent = contentCss;

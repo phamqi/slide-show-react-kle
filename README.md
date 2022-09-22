@@ -6,8 +6,248 @@
 
 ## Installation
 
+Using npm:
+
 ```bash
 npm install --save slide-show-react-kle
+```
+
+## Node:
+
+Import your css files or makeStyles
+
+```jsx
+const makeStyles = {
+    class: { /// .class_randomValue { /* styles */ }
+      color: 'white',
+    },
+    left_arrow: { /// .left_arrow_ba7gh { /* styles */ }
+      color: 'white',
+    },
+    '/class': { // .class { /* styles */ }
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    '/left_arrow': { // .left_arrow { /* styles */ }
+      boxSizing: 'border-box',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    },
+    '?html tag': { // html tag { /* styles */ }
+      fontSize: '2.5rem',
+    },
+    '?h3': { // h3 { /* styles */ }
+       zIndex: 9,
+    },
+    '/left_arrow:hover': { /// .left_arrow:hover : {/* styles */}
+    },
+    '?a:visited': { // a:visited { /*styles */}
+    },
+     '@keyframes name': `{0%{tranform: translateX(10px)}, 100%{}}`,
+```
+
+## Slideshow BanhMy
+
+```jsx
+import { BanhMy } from 'slide-show-react-kle';
+```
+
+```jsx
+  const App = () => {
+    return (
+      <div>
+        <BanhMy >
+          {yourData.map((items) => (
+            // your item //
+          ))}
+        </BanhMy>
+      </div>
+    );
+  };
+export default App;
+```
+
+### Examplpe <a href='https://codesandbox.io/s/slideshowbanhmy-wolz7o' target="_blank" > view</a>
+
+```jsx
+const App = () => {
+  const stylesBanhMy = {
+    right_arrow: {
+      color: 'white',
+    },
+    left_arrow: {
+      color: 'white',
+    },
+    '/div_item': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'relative',
+    },
+    '/div_background': {
+      position: 'absolute',
+      top: '0',
+      bottom: '0',
+      left: '0',
+      right: '0',
+      boxSizing: 'border-box',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      filter: 'blur(2px)',
+    },
+    '/img_background': {
+      borderRadius: '5px',
+      width: '80%',
+      height: '80%',
+      boxShadow: '0 0 3rem #666',
+      zIndex: 2,
+    },
+    '/div_txt': {
+      bottom: '20%',
+      zIndex: 3,
+      position: 'absolute',
+      left: '20%',
+    },
+    '?h3': {
+      fontSize: '2.5rem',
+      color: 'white',
+      margin: '5px 0',
+    },
+    '/a_link': {
+      fontSize: '1.5rem',
+      color: '#cdcbcb',
+      zIndex: 9,
+    },
+    '?a.a_link:visited': {
+      color: '#cdcbcb',
+    },
+  };
+  return (
+    <div>
+      <BanhMy style={stylesBanhMy}>
+        {data.map((item, index) => (
+          <div key={index} className="div_item">
+            <div
+              className="div_background"
+              style={{ backgroundImage: `url(${item.img})` }}
+            ></div>
+            <img className="img_background" src={item.img} alt="img"></img>
+            <div className="div_txt">
+              <h3>{item.title}</h3>
+              <a className="a_link" href={item.link}>
+                View
+              </a>
+            </div>
+          </div>
+        ))}
+      </BanhMy>
+    </div>
+  );
+};
+export default App;
+```
+
+Output:
+<img src='https://i.imgur.com/uF06rB5.png' alt='banhMySlide'/>
+
+### PropTypes
+
+```jsx
+  time: timeOut to next slide //default 5000ms
+  style: makeStlyes,
+  prevBtn: change icon prev button,
+  nextBtn: change icon next button,
+```
+
+## Slideshow BanhBo
+
+### Example <a href='https://codesandbox.io/s/slideshowbanhbo-rrj9ox' target="_blank" > view</a>
+
+```jsx
+import { BanhMy } from 'slide-show-react-kle';
+```
+
+```jsx
+const App = () => {
+  const stylesBanhMy = {
+    ///////
+  };
+  return (
+    <div>
+      <BanhBo style={stylesBanhMy} slash="|">
+        {data.map((item, index) => (
+          <div key={index} className="div_item">
+            <div
+              className="div_background"
+              style={{ backgroundImage: `url(${item.img})` }}
+            ></div>
+            <img className="img_background" src={item.img} alt="img"></img>
+          </div>
+        ))}
+      </BanhBo>
+    </div>
+  );
+};
+export default App;
+```
+
+Output:
+<img src='https://i.imgur.com/BbN3zer.png' alt='banhBoSlide'/>
+
+### PropTypes
+
+```jsx
+  time: timeOut to next slide //default 5000ms
+  style: makeStlyes,
+  prevBtn: change icon prev button,
+  nextBtn: change icon next button,
+  slash: //defualt '/'
+```
+
+## Slideshow Pho
+
+### Example <a href='https://codesandbox.io/s/slideshowpho-822mbh' target="_blank" > view</a>
+
+```jsx
+import { Pho } from 'slide-show-react-kle';
+```
+
+```jsx
+import React from 'react';
+
+import { Slide, SlideSimple, Pho, BanhMy, BanhBo } from 'slide-show-react-kle';
+import { dataSlideSimple } from './dataSlideSimple';
+import { dataSlidePicture } from './dataSlidePicture';
+import 'slide-show-react-kle/dist/index.css';
+import { dataSlide } from './dataSlide';
+
+const App = () => {
+  const data = [{
+  {
+    img: 'https://picsum.photos/1024/767',
+    title: 'Slide 1',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, fugiat quasi aut earum id quos quam voluptas, adipisci mollitia, voluptates dolore aperiam unde nihil. Exercitationem ipsum culpa quam maiores aliquid!',
+    link: '#',
+  },
+  }]
+  return (
+      <Pho data={data} />
+  );
+};
+export default App;
+```
+
+### PropTypes
+
+```jsx
+  data: array.isRequired,
+  time: timeOut to next slide //default 5000ms
+  style: makeStyles,
+  prevBtn: change icon prev button,
+  nextBtn: change icon next button,
+  customATag: true to replace a tag , //defualt false
+  textContentATag: replace text content of a tag // defualt 'View'
 ```
 
 ## Simple Slide
@@ -53,7 +293,6 @@ class Example extends Component {
       marginRight: '20px'
     }
     carousel_img : {
-      // your css !important //
     }
   }
   const images = {

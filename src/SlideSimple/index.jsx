@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
-import styles from '../styles.module.scss';
 import useFormatCss from '../useFormatcss';
 
 Slide.propTypes = {
   data: PropTypes.array,
+  style: PropTypes.object,
+  btnNext: PropTypes.any,
+  btnPrev: PropTypes.any,
 };
 
-function Slide({ data, styles, btnNext, btnPrev }) {
-  const { contentCss, randomValue } = useFormatCss(styles);
+function Slide({ data, style, btnNext, btnPrev, time = 5000 }) {
+  const { contentCss, randomValue } = useFormatCss(style);
   useMemo(() => {
     const style = document.createElement('style');
     style.textContent = contentCss;
@@ -55,7 +57,7 @@ function Slide({ data, styles, btnNext, btnPrev }) {
     timeoutRef.current = setTimeout(() => {
       SetFromX('70%');
       setCurrentSlide(currentSlide === countSlide - 1 ? 0 : currentSlide + 1);
-    }, 5000);
+    }, time);
     return () => {
       resetTimeout();
     };
