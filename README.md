@@ -18,29 +18,23 @@ Import your css files or makeStyles
 
 ```jsx
 const makeStyles = {
-    class: { /// .class_randomValue { /* styles */ }
+    class: { // .class_randomValue { /* styles */ }
       color: 'white',
     },
-    left_arrow: { /// .left_arrow_ba7gh { /* styles */ }
+    left_arrow: { // .left_arrow_ba7gh { /* styles */ }
       color: 'white',
     },
-    '/class': { // .class { /* styles */ }
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+    'section_wraper::after':{ //.section_wraper_ba7gh::after { /* styles */ }
     },
     '/left_arrow': { // .left_arrow { /* styles */ }
       boxSizing: 'border-box',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
     },
-    '?html tag': { // html tag { /* styles */ }
-      fontSize: '2.5rem',
-    },
     '?h3': { // h3 { /* styles */ }
        zIndex: 9,
     },
-    '/left_arrow:hover': { /// .left_arrow:hover : {/* styles */}
+    '/left_arrow:hover': { // .left_arrow:hover : {/* styles */}
     },
     '?a:visited': { // a:visited { /*styles */}
     },
@@ -68,7 +62,9 @@ import { BanhMy } from 'slide-show-react-kle';
 export default App;
 ```
 
-### Examplpe <a href='https://codesandbox.io/s/slideshowbanhmy-wolz7o' target="_blank" > view</a>
+### Examplpe
+
+<a href='https://codesandbox.io/s/slideshowbanhmy-wolz7o' target="_blank" > view</a>
 
 ```jsx
 const App = () => {
@@ -162,7 +158,9 @@ Output:
 
 ## Slideshow BanhBo
 
-### Example <a href='https://codesandbox.io/s/slideshowbanhbo-rrj9ox' target="_blank" > view</a>
+### Example
+
+<a href='https://codesandbox.io/s/slideshowbanhbo-rrj9ox' target="_blank" > view</a>
 
 ```jsx
 import { BanhMy } from 'slide-show-react-kle';
@@ -207,7 +205,9 @@ Output:
 
 ## Slideshow Pho
 
-### Example <a href='https://codesandbox.io/s/slideshowpho-822mbh' target="_blank" > view</a>
+### Example
+
+<a href='https://codesandbox.io/s/slideshowpho-822mbh' target="_blank" > view</a>
 
 ```jsx
 import { Pho } from 'slide-show-react-kle';
@@ -299,28 +299,6 @@ class Example extends Component {
   }
   render() {
     return <SlideSimple data={images}  style={style}/>
-  }
-}
-```
-
-## Simple Slide- Customize Btn
-
-And icon of next, prev button
-
-```jsx
-
-import React from 'react'
-import {SlideSimple} from 'slide-show-react-kle'
-
-class Example extends Component {
-  // customize icon of prev button (btnPrev) and next button (btnNext)//
-  const yourBtnPrev = <p>myPrevIcon</p>
-  const yourBtnNext = ......
-  const images = {
-    ......
-  }
-  render() {
-    return <SlideSimple btnPrev={yourBtnPrev} btnNext = {......} data={images} />
   }
 }
 ```

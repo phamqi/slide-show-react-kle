@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import useFormatCss from './useFormatCss';
-import LeftArrow from './LeftArrow';
-import RightArrow from './RightArrow';
+import LeftArrow from '../LeftArrow';
+import RightArrow from '../RightArrow';
 
 BanhMy.propTypes = {
   time: PropTypes.number,
   style: PropTypes.object,
-  prevBtn: PropTypes.array,
-  nextBtn: PropTypes.array,
+  prevBtn: PropTypes.any,
+  nextBtn: PropTypes.any,
   slash: PropTypes.any,
 };
 function BanhMy({ style, time = 5000, prevBtn, nextBtn, children, slash = '/' }) {
@@ -16,7 +16,6 @@ function BanhMy({ style, time = 5000, prevBtn, nextBtn, children, slash = '/' })
   const [active, setActive] = useState(0);
   const [maxLength, setMaxlength] = useState(0);
   const [sectionWidth, setSectionWidth] = useState(0);
-  const [onWheel, setOnWheel] = useState(true);
   const timeoutRef = useRef(null);
   const { contentCss, randomValue } = useFormatCss(style);
   let distance = 0;
@@ -147,7 +146,7 @@ function BanhMy({ style, time = 5000, prevBtn, nextBtn, children, slash = '/' })
   return (
     <div
       id="section__wrapper"
-      className={`container container_${randomValue}  section__wrapper  section__wrapper_${randomValue} section___${randomValue}wrapper`}
+      className={`container   section__wrapper  section__wrapper_${randomValue} section___${randomValue}wrapper`}
     >
       <div
         className={`section___${randomValue}wrap__btn section__wrap__btn_${randomValue}  section__wrap__btn `}

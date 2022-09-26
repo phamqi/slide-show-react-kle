@@ -36,7 +36,7 @@ export default function FormatCss(style) {
     Math.random().toString(36).substring(2, 7)
   );
   const cssDefault = `/* css ${randomValue} */
-  .container_${randomValue} {
+  .container {
     padding-right: 1rem;
     padding-left: 1rem;
     margin-right: auto;
@@ -120,12 +120,12 @@ export default function FormatCss(style) {
     }
   }
   @media (min-width: 576px){
-    .container_${randomValue} {
+    .container {
       width: 540px;
     }
   }
   @media (min-width: 768px) {
-    .container_${randomValue} {
+    .container {
       width: 720px;
     }
     .section__item_${randomValue} {
@@ -133,20 +133,27 @@ export default function FormatCss(style) {
     }
   }
   @media (min-width: 992px) {
-    .container_${randomValue} {
+    .container {
       width: 960px;
     }
   }
   @media (min-width: 1200px) {
-    .container_${randomValue} {
+    .container {
       width: 1140px;
     }
   }
     @media (min-width: 1400px) {
-      .container_${randomValue} {
+      .container {
         width: 1320px;
       }
   }`;
+  function afterCss(value, randomValue) {
+    if (value.includes('::')) {
+      return value.replace('::', `_${randomValue}::`);
+    } else {
+      return `${value}_${randomValue}`;
+    }
+  }
   useMemo(() => {
     try {
       if (style) {
@@ -168,6 +175,7 @@ export default function FormatCss(style) {
             }
           }
           let classRp = classArray[a].replace(/ /g, '');
+          let classCss = afterCss(classArray[a], randomValue);
           let classRpp = classRp.replace('/', '');
           let classRppp = classRp.replace('?', '');
           switch (classRp.charAt(0)) {
@@ -184,9 +192,7 @@ export default function FormatCss(style) {
               contentCs += `#section__wrapper ${classRppp}` + `${stylesFormated}`;
               break;
             default:
-              contentCs +=
-                `#section__wrapper .${classArray[a]}_${randomValue}` +
-                `${stylesFormated}`;
+              contentCs += `#section__wrapper .${classCss}` + `${stylesFormated}`;
           }
         }
       } else {

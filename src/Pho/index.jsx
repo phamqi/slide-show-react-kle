@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import useFormatCss from './useFormatCss';
-import LeftArrow from './LeftArrow';
-import RightArrow from './RightArrow';
+import LeftArrow from '../LeftArrow';
+import RightArrow from '../RightArrow';
 
 Pho.propTypes = {
   data: PropTypes.array.isRequired,
   time: PropTypes.number,
   style: PropTypes.object,
-  prevBtn: PropTypes.array,
-  nextBtn: PropTypes.array,
+  prevBtn: PropTypes.any,
+  nextBtn: PropTypes.any,
   customATag: PropTypes.bool,
-  textContentATag: PropTypes.string,
+  textContentATag: PropTypes.any,
 };
 function Pho({
   data,
@@ -148,6 +148,7 @@ function Pho({
         element.style.width = `${sectionWidth}px`;
         element.style.flex = `0 0 auto`;
         element.style.scrollSnapAlign = 'start';
+        element.style.boxSizing = 'border-box';
       }
     });
     window.addEventListener('resize', () => {
@@ -166,7 +167,7 @@ function Pho({
   return (
     <div
       id="section__wrapper"
-      className={`container container_${randomValue}  section__wrapper  section__wrapper_${randomValue} section___${randomValue}wrapper`}
+      className={`container  section__wrapper  section__wrapper_${randomValue} section___${randomValue}wrapper`}
     >
       <div
         className={`section___${randomValue}wrap__btn section__wrap__btn_${randomValue}  section__wrap__btn `}
@@ -239,5 +240,4 @@ function Pho({
     </div>
   );
 }
-
 export default memo(Pho);
